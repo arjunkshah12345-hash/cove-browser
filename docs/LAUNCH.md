@@ -26,7 +26,7 @@ The source-checks workflow runs unit tests, the production workspace build, and 
 - [x] MIT license, contributor guide, security disclosures and feature ledger.
 - [x] Native persistent cookies/site storage, normal/private isolation and restart fixture coverage.
 - [x] Source unit tests, production build, browser UI tests and native fixture smoke checks pass locally on macOS arm64.
-- [x] Static launch website and Pages deployment workflow authored; 8 local site browser checks pass, including project-subpath assets and mobile layout.
+- [x] Redesigned launch website and Pages deployment workflow authored; 18 local site browser checks pass, including project-subpath assets, animated workspace controls, reduced-motion behavior and mobile layout.
 - [ ] Public repository creation and first source push confirmed remotely.
 - [ ] Pages enabled and successful deployed URL verified.
 - [ ] Any downloadable binary release published with checksums and explicit unsigned-alpha warnings.
