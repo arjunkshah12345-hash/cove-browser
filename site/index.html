@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#edf0e7">
+    <meta name="description" content="A little space for you. Cove is an independent, MIT-licensed, keyboard-first browser inspired by Arc. Build the 0.6.0 developer alpha from source.">
+    <title>Cove — A little space for you.</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./site.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#top" aria-label="Cove home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><path d="M31 10C18 1 5 11 7 24c2 12 19 15 26 4-8 5-19 1-18-7 0-7 8-12 16-11Z" fill="currentColor"/></svg>cove<span class="wordmark-period">.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#workspace">The workspace</a>
+        <a href="https://github.com/arjunkshah12345-hash/cove-browser">Source <span aria-hidden="true">↗</span></a>
+        <a class="nav-build" href="#build">Build the alpha <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Independent by design. Open by default.</p>
+          <h1 id="hero-title">A little space<br>for <em>you.</em></h1>
+          <p class="hero-description">For those who felt at home in Arc.<br>A quieter, keyboard-first browser, built in the open. A new beginning, not a replica.</p>
+          <div class="hero-actions"><a class="button" href="#build">Build the alpha <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/arjunkshah12345-hash/cove-browser">Explore the source <span aria-hidden="true">↗</span></a></div>
+          <p class="release-note">0.6.0 developer alpha · macOS Apple Silicon<br>Source only here. Unsigned. Not notarized.</p>
+        </div>
+        <div class="hero-aside" aria-hidden="true"><span class="aside-line"></span><p>Less browser.<br>More breathing room.</p><span class="small-star">✳</span></div>
+      </section>
+
+      <figure class="workspace-figure wrap">
+        <div class="browser-illustration" role="img" aria-label="Illustration, not a screenshot: a sage Cove sidebar with Work and Personal spaces, pinned tabs, and two open pages in split view.">
+          <aside class="illustration-sidebar" aria-hidden="true">
+            <div class="window-dots"><span></span><span></span><span></span></div>
+            <div class="illustration-tools"><span>▤</span><span>＋</span></div>
+            <div class="mock-search">Search anything <span>⌘ K</span></div>
+            <div class="mock-space"><span>◒</span> Work <span class="chevron">⌄</span></div>
+            <div class="mock-pins"><span>✳</span><span>◈</span><span>▧</span></div>
+            <div class="mock-tab selected"><span>◷</span> A slower internet <span>×</span></div>
+            <div class="mock-tab"><span>▤</span> Field notes</div>
+            <div class="mock-tab"><span>⌁</span> Things worth keeping</div>
+            <div class="mock-new">＋ New tab</div>
+            <div class="sidebar-bottom"><span class="space-swatch active">W</span><span class="space-swatch">P</span><span>Personal</span><span class="sidebar-settings">⚙</span></div>
+          </aside>
+          <div class="illustration-content" aria-hidden="true">
+            <div class="mock-toolbar"><span>← &nbsp; → &nbsp; ↻</span><span class="mock-address">A slower internet</span><span>◫ &nbsp; ···</span></div>
+            <div class="split-panes">
+              <div class="mock-article"><div class="mock-publication">THE QUIET WEB <span>FIELD JOURNAL — 01</span></div><p class="mock-kicker">ON PAYING ATTENTION</p><h2>What if the web<br>felt a little<br><em>more human?</em></h2><div class="landscape"><span class="landscape-sun"></span><span class="landscape-hill hill-back"></span><span class="landscape-hill hill-front"></span><span class="landscape-caption">A little room to wander.</span></div><p class="mock-body">Not everything needs to move faster.<br>Some things just need space to grow.</p></div>
+              <div class="mock-notes"><div class="mock-note-heading">FIELD NOTES <span>↗</span></div><p class="note-date">A thought to come back to</p><h3>Make room<br>for the good stuff.</h3><p>A useful idea.<br>A long read.<br>A small detour.</p><div class="note-rule"></div><p class="note-serif">Keep what matters.<br>Let the rest go.</p><span class="note-flower">✳</span></div>
+            </div>
+          </div>
+        </div>
+        <figcaption><span>AN IDEA OF HOME, ON THE WEB.</span><span>Workspace illustration · not a screenshot</span></figcaption>
+      </figure>
+
+      <section class="alpha-notice wrap" aria-label="Alpha warning"><span class="eyebrow">A small, important note</span><p>Cove is an early developer alpha, not a hardened daily driver. <strong>Do not use it for sensitive browsing.</strong> No automatic updates. <a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/SECURITY.md">Read the security boundaries <span aria-hidden="true">↗</span></a></p></section>
+
+      <section class="workspace-section wrap" id="workspace" aria-labelledby="workspace-title">
+        <div class="section-heading"><p class="eyebrow">01 / Familiar ideas. A fresh start.</p><h2 id="workspace-title">Find your rhythm.<br><em>Keep your space.</em></h2><p>The parts you reach for every day, without pretending the whole journey is finished.</p></div>
+        <div class="feature-list">
+          <article class="feature"><span class="feature-number">01</span><div><h3>A space for each part of your day.</h3><p>Separate work from everything else. Spaces keep tabs organized, with isolated website sessions in normal desktop browsing.</p><div class="feature-detail"><span class="mini-space">◒ &nbsp; Work</span><span class="mini-space">◐ &nbsp; Personal</span></div></div></article>
+          <article class="feature"><span class="feature-number">02</span><div><h3>The important things, close by.</h3><p>Pin the tabs you return to. Less searching through yesterday’s open pages; more getting back to what you came for.</p><div class="feature-detail quiet-detail">A place to return to. Not another pile of tabs.</div></div></article>
+          <article class="feature"><span class="feature-number">03</span><div><h3>Two pages. One train of thought.</h3><p>Read and reference side by side with split view. Saved split pairs and divider widths belong to each space.</p><div class="split-detail" aria-hidden="true"><span>Read</span><span>Reference</span></div></div></article>
+          <article class="feature"><span class="feature-number">04</span><div><h3>Stay in the flow.</h3><p>Keyboard-first navigation and local search across tabs, favorites, history, and commands. Find your next destination without reaching for the mouse.</p><div class="feature-detail"><kbd>⌘</kbd><kbd>K</kbd><span>Open the command bar</span></div></div></article>
+        </div>
+      </section>
+
+      <section class="persistence-band" aria-labelledby="persistence-title"><div class="wrap persistence-content"><div><p class="eyebrow">A real browser underneath</p><h2 id="persistence-title">Pick up where<br>you <em>left off.</em></h2></div><div class="persistence-copy"><p>Native Chromium sessions persist website localStorage and persistent cookies across normal app restarts. Each space has its own session; private windows use separate, nonpersistent sessions.</p><p class="small-copy">Session cookies still follow Chromium’s lifetime rules. Private does not mean anonymous or trace-free: downloads and saved files remain, and temporary runtime data is not automatically erased. Cove never reads another browser’s profile.</p><a class="text-link" href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/SECURITY.md">Understand the privacy boundaries <span aria-hidden="true">↗</span></a></div></div></section>
+
+      <section class="build-section wrap" id="build" aria-labelledby="build-title">
+        <div class="build-intro"><p class="eyebrow">02 / For the curious. And the builders.</p><h2 id="build-title">Not a download.<br><em>An open invitation.</em></h2><p>This launch is source-only. Build the 0.6.0 developer alpha yourself, inspect what’s there, and help shape what comes next.</p><p class="build-requirements">Launch target: macOS on Apple Silicon.<br>Requires Node.js 22.12+ or a newer supported LTS, npm, Git, and a graphical desktop.</p><a class="text-link" href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/README.md">Full build instructions <span aria-hidden="true">↗</span></a></div>
+        <div class="build-instructions"><div class="code-heading"><span>BUILD FROM SOURCE</span><button id="copy-build" type="button" hidden>Copy commands</button></div><pre tabindex="0" aria-label="Build commands"><code id="build-commands">git clone https://github.com/arjunkshah12345-hash/cove-browser.git
+cd cove-browser
+npm ci
+npm run desktop</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p><p class="code-note">Optional local package: <code>npm run package</code>.<br>Local packages are unsigned and not notarized. They do not include automatic updates.</p></div>
+      </section>
+
+      <section class="faq-section wrap" aria-labelledby="faq-title"><div><p class="eyebrow">03 / In plain sight</p><h2 id="faq-title">A few honest<br><em>answers.</em></h2></div><div class="faq-list">
+        <details open><summary>Is Cove a replacement for Arc?</summary><p>It’s an independent, clean-room implementation inspired by ideas Arc users love. It is not affiliated with Arc and does not use its source or branding. Spaces, pins, and split view work today; full Arc parity is not a promise.</p></details>
+        <details><summary>Can I use it as my everyday browser?</summary><p>Not yet. Version 0.6.0 is a developer alpha, unsigned and not notarized, without automatic updates or an independent security audit. Keep a maintained browser for sensitive browsing. This launch targets macOS Apple Silicon; other platforms are not verified for this launch.</p></details>
+        <details><summary>What isn’t here yet?</summary><p>Extensions, account sync, a password manager, and automatic updates are absent. Chrome-equivalent compatibility, DRM, Chrome profile or password import, and every website’s login flow are not guaranteed. <a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/FEATURES.md">See the full feature inventory.</a></p></details>
+        <details><summary>What does open source mean here?</summary><p>Cove is MIT-licensed. You can read, build, modify, and contribute to the source under that license. It is an independent project, not a continuation of Arc or a claim to its services. <a href="https://github.com/arjunkshah12345-hash/cove-browser">Explore the repository.</a></p></details>
+      </div></section>
+
+      <section class="closing wrap"><p class="eyebrow">Your next chapter on the web</p><h2>Make yourself <em>at home.</em></h2><a class="button" href="#build">Build the alpha <span aria-hidden="true">↗</span></a><p>Small beginnings. Open possibilities.</p></section>
+    </main>
+    <footer class="site-footer wrap"><a class="wordmark" href="#top">cove<span class="wordmark-period">.</span></a><p>Independent. Open source. MIT licensed.</p><nav aria-label="Project resources"><a href="https://github.com/arjunkshah12345-hash/cove-browser">GitHub ↗</a><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/README.md">Docs ↗</a><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/SECURITY.md">Security ↗</a></nav></footer>
+  </body>
+</html>
