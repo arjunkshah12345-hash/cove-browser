@@ -19,7 +19,7 @@ test('launch site renders without errors or third-party network dependencies', a
 test('local styles, scripts and font assets resolve at a Pages project subpath', async ({ page, request }) => {
   await page.goto('./');
   const assets = await page.locator('link[rel="stylesheet"], script[src]').evaluateAll((elements) => elements.map((element) => element.href || element.src));
-  for (const asset of [...assets, 'http://127.0.0.1:4174/cove-browser/assets/dm-sans.woff2', 'http://127.0.0.1:4174/cove-browser/assets/instrument-serif.woff2']) {
+  for (const asset of [...assets, 'http://127.0.0.1:4174/cove-browser/assets/chivo.woff2']) {
     const response = await request.get(asset);
     expect(response.status(), asset).toBe(200);
     expect(response.headers()['content-type'], asset).not.toContain('text/html');

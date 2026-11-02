@@ -78,7 +78,7 @@ test('rapid space and split changes preserve the final content and hidden state'
     await expect(preview.getByRole('heading', { name: 'Good ideas start with space.' })).toBeVisible();
     await expect(preview).toContainText('Room for good ideas');
     await expect(preview).toContainText('A clear head. A fresh perspective.');
-    await expect(preview).not.toContainText(/Make room\s*for a little wonder\./);
+    await expect(preview).not.toContainText(/A little space\s*for you\./);
     await expect(page.locator('.split-page')).toHaveJSProperty('hidden', !finalSplit);
     if (finalSplit) await expect(page.locator('.split-page')).toBeVisible();
     else await expect(page.locator('.split-page')).toBeHidden();
