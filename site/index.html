@@ -3,70 +3,238 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e7eee5">
-  <meta name="description" content="Cove is an independent, open-source browser with spaces, pinned tabs and split view. A calmer corner of the internet. Build the developer alpha.">
-  <title>Cove — Your internet. A little more you.</title>
+  <meta name="theme-color" content="#0b100d">
+  <meta name="description" content="Cove is a free, open-source browser with spaces, split view and Peek, for people who miss how Arc felt. An early developer alpha you build from source.">
+  <title>Cove — a free, open-source browser for people who miss Arc</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/chivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./motion.css">
   <script src="./site.js" defer></script>
 </head>
 <body id="top">
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <symbol id="i-mark" viewBox="0 0 24 24"><path d="M5 20v-8a7 7 0 0 1 14 0v8M9 20v-8a3 3 0 0 1 6 0v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-case" viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12h17" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 5v14" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="18" cy="12" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </svg>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header wrap">
-    <a class="wordmark" href="#top" aria-label="Cove home"><svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true"><path d="M31 10C18 1 5 11 7 24c2 12 19 15 26 4-8 5-19 1-18-7 0-7 8-12 16-11Z" fill="currentColor"/></svg>cove</a>
-    <nav aria-label="Main navigation"><a href="#workspace">Meet Cove</a><a href="#principles">Why open source?</a><a class="nav-source" href="https://github.com/arjunkshah12345-hash/cove-browser">GitHub <span aria-hidden="true">↗</span></a></nav>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Cove home"><svg width="24" height="24" aria-hidden="true"><use href="#i-mark"/></svg>cove</a>
+    <nav aria-label="Main navigation"><a href="#features">Features</a><a href="#keys">Shortcuts</a><a href="#build">Build</a><a href="https://github.com/arjunkshah12345-hash/cove-browser">GitHub <span aria-hidden="true">↗</span></a></nav>
   </header>
+
   <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <a class="release-pill" href="#build"><span class="status-dot" aria-hidden="true"></span> A new home for Arc people <span class="pill-version">v0.6 alpha ↗</span></a>
-      <h1 id="hero-title"><span class="hero-line">Your internet.</span><span class="hero-line">A little more <em>you.</em></span></h1>
-      <p class="hero-description">All your little corners of the web, finally together.<br>A calmer, keyboard-first browser. Yours to make your own.</p>
-      <div class="hero-actions"><a class="button button-primary" href="#build">Build the alpha <span aria-hidden="true">↗</span></a><a class="button button-light" href="https://github.com/arjunkshah12345-hash/cove-browser">Explore the source <span aria-hidden="true">⌘</span></a></div>
-      <p class="release-note">Free &amp; open source <span aria-hidden="true">·</span> macOS Apple Silicon <span aria-hidden="true">·</span> Developer alpha</p>
-    </section>
-
-    <section class="showcase wrap" id="workspace" aria-label="Explore the Cove workspace">
-      <div class="browser-preview" data-space="personal" data-split="false">
-        <aside class="browser-sidebar" aria-label="Workspace preview controls">
-          <div class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i><span>◫</span></div>
-          <div class="preview-search"><span aria-hidden="true">⌕</span> Search anything <kbd>⌘ K</kbd></div>
-          <div class="pinned-sites" aria-label="Illustrated pinned sites"><span class="pin mail" aria-label="Mail">M</span><span class="pin notion" aria-label="Notes">N</span><span class="pin music" aria-label="Music">♫</span></div>
-          <div class="space-heading"><span class="space-icon" aria-hidden="true">✳</span><span id="preview-space-name">Personal</span><span aria-hidden="true">⌄</span></div>
-          <div class="tab-group"><p>THE GOOD STUFF</p><div class="preview-tab active"><span aria-hidden="true">◈</span><span id="preview-tab-name">A place to begin</span></div><div class="preview-tab"><span aria-hidden="true">▤</span> Field notes</div><div class="preview-tab"><span aria-hidden="true">↗</span><span id="preview-third-tab">Weekend somewhere</span></div><div class="preview-tab new-tab"><span aria-hidden="true">＋</span> New tab</div></div>
-          <div class="space-switcher"><button type="button" aria-label="Personal space" aria-pressed="true" data-space-choice="personal">✳</button><button type="button" aria-label="Work space" aria-pressed="false" data-space-choice="work">▧</button><span>Try a space</span><button class="split-toggle" type="button" aria-label="Toggle split view" aria-pressed="false">◫</button></div>
-        </aside>
-        <div class="browser-content">
-          <div class="browser-toolbar"><span class="toolbar-arrows" aria-hidden="true">← &nbsp; → &nbsp; ↻</span><span class="address"><svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6" rx="1" fill="none" stroke="currentColor"/><path d="M3 5V3a2 2 0 0 1 4 0v2" fill="none" stroke="currentColor"/></svg> cove://home</span><span aria-hidden="true">···</span></div>
-          <div class="preview-pages">
-            <div class="home-page"><div class="home-copy"><p class="home-date">A FRESH START, EVERY DAY</p><svg class="home-sun" width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 2v6m0 24v6M2 20h6m24 0h6M7 7l4 4m18 18 4 4M7 33l4-4m18-18 4-4" stroke="currentColor" stroke-width="1.5"/></svg><h2 id="preview-greeting">Make room<br>for a little wonder.</h2><p class="home-subtitle" id="preview-subtitle">A new tab. A new possibility.</p><div class="home-shortcuts"><span><b>✳</b>Discover</span><span><b>▤</b>Read later</span><span><b>♡</b>Favorites</span></div><div class="home-note"><span aria-hidden="true">✎</span> Something worth remembering…</div></div><img class="home-photo" src="./assets/quiet-mountains.jpg" alt="Sunlit Yosemite cliffs above a forest and meadow" width="1000" height="1651" fetchpriority="high"></div>
-            <article class="split-page" hidden><p class="home-date">FIELD NOTES / 001</p><h2>A slower<br>kind of internet.</h2><div class="article-rule"></div><p>Keep the things that matter close. Let the rest breathe.</p><div class="note-lines" aria-hidden="true"><span></span><span></span><span></span></div><p class="article-signoff">A little space to think.</p></article>
-          </div>
-        </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img class="is-current" src="./assets/hero-2007.jpg" width="2400" height="1800" alt="" fetchpriority="high">
+        <img src="./assets/hero-mcway.jpg" width="2400" height="1594" alt="" loading="lazy">
+        <img src="./assets/hero-1813.jpg" width="1920" height="1318" alt="" loading="lazy">
       </div>
-      <div class="preview-caption"><span><span class="tiny-dot" aria-hidden="true"></span> Interactive workspace preview <span class="caption-detail">— an illustration, not a live browser</span></span><div class="preview-controls" role="group" aria-label="Try the illustrated workspace"><button type="button" data-space-choice="personal" aria-label="Show Personal workspace" aria-pressed="true">Personal</button><button type="button" data-space-choice="work" aria-label="Show Work workspace" aria-pressed="false">Work</button><span aria-hidden="true"></span><button type="button" data-split-toggle aria-label="Preview split view" aria-pressed="false"><span aria-hidden="true">◫</span> Split view</button></div></div>
+      <div class="hero-band">
+        <p class="hero-line" data-reveal>A free, open-source browser for people who miss Arc. Spaces, split view and Peek, in developer alpha 0.6.</p>
+        <a class="button" href="#build" data-reveal>Build the alpha</a>
+        <h1 id="hero-title" data-reveal>Cove</h1>
+      </div>
     </section>
 
-    <section class="essentials wrap" aria-label="Browser essentials"><p>A familiar feeling.<br><strong>A fresh beginning.</strong></p><ul><li><span aria-hidden="true">◒</span> Separate spaces</li><li><span aria-hidden="true">⌑</span> Pinned favorites</li><li><span aria-hidden="true">◫</span> Side-by-side browsing</li><li><span aria-hidden="true">⌘</span> Keyboard first</li></ul></section>
-
-    <section class="feature-section wrap" aria-labelledby="features-title">
-      <div class="section-intro"><span class="eyebrow">LESS FRICTION. MORE FLOW.</span><h2 id="features-title">A home for your<br><em>many open tabs.</em></h2><p>Work brain. Weekend brain. That rabbit hole you’re not quite done with. There’s room for all of it.</p></div>
-      <div class="feature-list"><article><span class="feature-number">01</span><div><h3>A place for every part of you.</h3><p>Keep projects and personal browsing in separate spaces, each with its own persistent website session.</p></div><span aria-hidden="true">◒</span></article><article><span class="feature-number">02</span><div><h3>Two tabs. One train of thought.</h3><p>Read, compare, and connect the dots in split view. Your pane pairing and divider width stay with the space.</p></div><span aria-hidden="true">◫</span></article><article><span class="feature-number">03</span><div><h3>Pick up where you left off.</h3><p>Normal sessions keep persistent cookies and site storage across restarts. Private windows keep their sessions separate.</p></div><span aria-hidden="true">↺</span></article></div>
+    <section class="tour" aria-labelledby="tour-title">
+      <div class="plate" data-reveal>
+        <img class="plate-shot is-current" data-shot="peek" src="./assets/app-peek.jpg" width="1680" height="1050" alt="Cove with a Wikipedia article about Durdle Door open in Peek, a preview card over the dimmed window with an Open as tab button.">
+        <img class="plate-shot" data-shot="split" src="./assets/app-split.jpg" width="1680" height="1050" loading="lazy" alt="Cove in split view: a Wikipedia article about Lulworth Cove beside Cove’s new tab page.">
+        <img class="plate-shot" data-shot="command" src="./assets/app-command.jpg" width="1680" height="1050" loading="lazy" alt="Cove’s command bar listing open tabs and commands that match the search “cove”.">
+        <img class="plate-shot" data-shot="evening" src="./assets/app-dark.jpg" width="1680" height="1050" loading="lazy" alt="Cove in evening mode, with a dark green sidebar and a dark new tab page.">
+      </div>
+      <div class="tour-copy">
+        <div class="tour-tabs" role="tablist" aria-label="Tour of Cove">
+          <button type="button" role="tab" id="tab-peek" aria-controls="panel-peek" aria-selected="true" data-tour="peek">Peek</button>
+          <button type="button" role="tab" id="tab-split" aria-controls="panel-split" aria-selected="false" tabindex="-1" data-tour="split">Split view</button>
+          <button type="button" role="tab" id="tab-command" aria-controls="panel-command" aria-selected="false" tabindex="-1" data-tour="command">Command bar</button>
+          <button type="button" role="tab" id="tab-evening" aria-controls="panel-evening" aria-selected="false" tabindex="-1" data-tour="evening">Evening</button>
+        </div>
+        <h2 id="tour-title" class="visually-hidden">A tour of Cove</h2>
+        <div class="tour-panels">
+          <div class="tour-panel" role="tabpanel" id="panel-peek" aria-labelledby="tab-peek"><p class="tour-title">Look before you leap</p><p>Shift-click any link to read it in a preview over the page you’re on. Escape closes it, even from inside the page, and ⌘↵ keeps it as a tab in the same space, with the same site permissions.</p></div>
+          <div class="tour-panel" role="tabpanel" id="panel-split" aria-labelledby="tab-split" hidden><p class="tour-title">Two pages, one window</p><p>Press ⌘⇧D to put two tabs side by side. Drag the divider anywhere between a quarter and three quarters, and each space remembers its own pair.</p></div>
+          <div class="tour-panel" role="tabpanel" id="panel-command" aria-labelledby="tab-command" hidden><p class="tour-title">One box for everything</p><p>⌘K searches open tabs in every space, your favourites, your history and Cove’s own commands, ranked so the tab you meant comes first.</p></div>
+          <div class="tour-panel" role="tabpanel" id="panel-evening" aria-labelledby="tab-evening" hidden><p class="tour-title">Light by day, dark by evening</p><p>Choose sage, sand or lavender. Cove can follow your computer’s light and dark setting as it changes, or you can turn evening mode on yourself.</p></div>
+        </div>
+        <div class="cells"><a class="cell cell-ink" href="#build">Build the alpha</a><a class="cell" href="https://github.com/arjunkshah12345-hash/cove-browser">Read the source <span aria-hidden="true">↗</span></a></div>
+      </div>
     </section>
 
-    <section class="ownership-section" id="principles" aria-labelledby="ownership-title"><div class="ownership-inner wrap"><div><span class="eyebrow">YOUR BROWSER SHOULD BELONG TO YOU.</span><h2 id="ownership-title">Not a walled garden.<br>An <em>open door.</em></h2><p>Cove is independent, MIT-licensed, and built in the open. No account to create. No telemetry built in. Just a browser you can inspect, change, and help shape.</p><a class="text-link" href="https://github.com/arjunkshah12345-hash/cove-browser">Take a look under the hood ↗</a></div><div class="source-art" aria-label="Cove is open source under the MIT license"><span class="source-bracket" aria-hidden="true">{</span><div><span class="source-label">MADE TO BE YOURS</span><strong>Open source.<br>Open possibilities.</strong><span class="license-label"><span aria-hidden="true">↳</span> MIT licensed. Always inspectable.</span></div><span class="source-bracket" aria-hidden="true">}</span></div></div></section>
+    <section class="index" id="features" aria-labelledby="features-title">
+      <h2 id="features-title" data-reveal>Everything in 0.6</h2>
+      <div class="index-grid">
+        <div class="index-col" data-reveal>
+          <h3>Find your way</h3>
+          <ul>
+            <li data-desc="⌘K searches tabs in every space, favourites, history and commands.">Search everything</li>
+            <li data-desc="Right-click or hold Back or Forward to jump to an exact page.">History menus</li>
+            <li data-desc="⌘⇧T reopens the last tab you closed.">Bring back a closed tab</li>
+            <li data-desc="Up to 1,000 visits, searchable, with per-entry removal.">Browsing history</li>
+            <li data-desc="⌘F with match counts and next and previous.">Find on the page</li>
+            <li data-desc="Import a bookmarks file, up to 500 links at a time.">Bookmarks import</li>
+            <li data-desc="Twelve favourites, shared by every space.">Favourites</li>
+          </ul>
+          <p class="index-sum">Get anywhere from the keyboard, and back again.</p>
+        </div>
+        <div class="index-col" data-reveal>
+          <h3>Arrange your tabs</h3>
+          <ul>
+            <li data-desc="Personal, Work and Studio, plus your own. Each has separate logins.">Spaces</li>
+            <li data-desc="Vertical tabs with pins, folders and drag to reorder.">Pinned tabs and folders</li>
+            <li data-desc="Two tabs side by side, with a divider you can drag.">Split view</li>
+            <li data-desc="Shift-click a link to preview it over the page you’re on.">Peek</li>
+            <li data-desc="Middle-click or ⌘-click a link; it loads only when you open it.">Links for later</li>
+            <li data-desc="Put an idle tab to sleep from Settings to free memory.">Tab sleeping</li>
+            <li data-desc="Optionally archive tabs after a day, a week or a month.">Tab archive</li>
+          </ul>
+          <p class="index-sum">A sidebar that keeps each part of your life in its own place.</p>
+        </div>
+        <div class="index-col" data-reveal>
+          <h3>Keep it yours</h3>
+          <ul>
+            <li data-desc="Separate sessions that aren’t saved when the window closes.">Private windows</li>
+            <li data-desc="Sign one space out and clear its cookies and site data.">Space data reset</li>
+            <li data-desc="Keep history forever, or for 1, 7, 30 or 90 days.">History that expires</li>
+            <li data-desc="Location, notifications and camera, per site and per space.">Site permissions</li>
+            <li data-desc="Retry resumes an interrupted download where it stopped.">Download retry</li>
+            <li data-desc="Export your whole workspace as a file whenever you like.">Workspace export</li>
+            <li data-desc="There’s no account to create and no telemetry built in.">No account, no telemetry</li>
+          </ul>
+          <p class="index-sum">Your workspace stays on your computer, and nobody is watching.</p>
+        </div>
+        <p class="index-spot" aria-hidden="true">Point at anything to read what it does.</p>
+      </div>
+    </section>
 
-    <section class="keyboard-section wrap" aria-labelledby="keyboard-title"><div><span class="eyebrow">STAY IN YOUR FLOW.</span><h2 id="keyboard-title">Less reaching.<br><em>More doing.</em></h2><p>Your next tab, search, or split is a few keys away.</p></div><div class="shortcut-list"><div><span>Find your next thought</span><span><kbd>⌘</kbd><kbd>K</kbd></span></div><div><span>Make a little space</span><span><kbd>⌘</kbd><kbd>T</kbd></span></div><div><span>See both sides</span><span><kbd>⌘</kbd><kbd>⇧</kbd><kbd>D</kbd></span></div><p>macOS shortcuts shown. Ctrl on Windows and Linux.</p></div></section>
+    <section class="keys" id="keys" aria-labelledby="keys-title">
+      <h2 id="keys-title" data-reveal><span>The keyboard does</span> the walking.</h2>
+      <div class="keys-body">
+        <figure class="keys-photo" data-reveal><img src="./assets/app-dark.jpg" width="1680" height="1050" loading="lazy" alt="Cove in evening mode: the dark sidebar with favourites and a Personal space beside the new tab page."></figure>
+        <p class="keys-label">Shortcuts</p>
+        <table class="keys-table" data-reveal>
+          <caption class="visually-hidden">Cove keyboard shortcuts on macOS</caption>
+          <tbody>
+            <tr><td>Find</td><td>Search or open a new tab</td><td><kbd>⌘ K</kbd></td></tr>
+            <tr><td>Find</td><td>Edit the address</td><td><kbd>⌘ L</kbd></td></tr>
+            <tr><td>Find</td><td>Find on the page</td><td><kbd>⌘ F</kbd></td></tr>
+            <tr><td>Find</td><td>Browsing history</td><td><kbd>⌘ Y</kbd></td></tr>
+            <tr class="group-start"><td>Tabs</td><td>Close the tab</td><td><kbd>⌘ W</kbd></td></tr>
+            <tr><td>Tabs</td><td>Bring back a closed tab</td><td><kbd>⌘ ⇧ T</kbd></td></tr>
+            <tr><td>Tabs</td><td>Next tab</td><td><kbd>Ctrl Tab</kbd></td></tr>
+            <tr><td>Tabs</td><td>Previous tab</td><td><kbd>Ctrl ⇧ Tab</kbd></td></tr>
+            <tr class="group-start"><td>Window</td><td>Split view</td><td><kbd>⌘ ⇧ D</kbd></td></tr>
+            <tr><td>Window</td><td>Hide the sidebar</td><td><kbd>⌘ ⇧ S</kbd></td></tr>
+            <tr><td>Window</td><td>New private window</td><td><kbd>⌘ ⇧ N</kbd></td></tr>
+            <tr><td>Window</td><td>Downloads</td><td><kbd>⌘ J</kbd></td></tr>
+            <tr class="group-start"><td>Cove</td><td>Settings</td><td><kbd>⌘ ,</kbd></td></tr>
+          </tbody>
+        </table>
+        <p class="keys-note">Shown for macOS. Use Ctrl instead of ⌘ on Windows and Linux.</p>
+      </div>
+    </section>
 
-    <section class="build-section wrap" id="build" aria-labelledby="build-title"><div class="build-intro"><span class="eyebrow">SMALL BEGINNINGS. OPEN POSSIBILITIES.</span><h2 id="build-title">Make yourself<br><em>at home.</em></h2><p>Build the developer alpha from source.<br>macOS Apple Silicon · Node.js 22.12+ · npm · Git</p><a class="text-link" href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/README.md">Read the setup guide ↗</a></div><div class="terminal"><div class="terminal-heading"><span><span class="terminal-dot" aria-hidden="true"></span> YOUR NEXT CHAPTER</span><button id="copy-build" type="button" hidden>Copy commands</button></div><pre tabindex="0" aria-label="Build commands"><code id="build-commands">git clone https://github.com/arjunkshah12345-hash/cove-browser.git
+    <section class="build" id="build" aria-labelledby="build-title">
+      <h2 id="build-title" data-reveal>Make yourself at home.</h2>
+      <div class="stage" data-reveal>
+        <p><strong>To begin, get the source.</strong> You’ll need Git, npm and Node.js 22.12 or newer, on macOS, Windows or Linux. Clone the repository, then install the exact versions it was tested with.</p>
+        <div class="terminal" data-ui>
+          <div class="terminal-bar"><span class="pv-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>Terminal</span><button id="copy-build" type="button" hidden>Copy commands</button></div>
+          <pre tabindex="0" aria-label="Build commands"><code id="build-commands">git clone https://github.com/arjunkshah12345-hash/cove-browser.git
 cd cove-browser
 npm ci
-npm run desktop</code></pre><p id="copy-status" role="status" aria-live="polite"></p><p class="terminal-footer"><span aria-hidden="true">↳</span> Your browser. Running on your machine.</p></div></section>
+npm run desktop</code></pre>
+          <p id="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="stage" data-reveal>
+        <p><strong>When it opens, make it yours.</strong> <code>npm run desktop</code> builds Cove and starts it. Make a space for work and another for everything else; each keeps its own logins. You can try that here first.</p>
+        <div class="browser-preview" data-ui data-space="personal" data-split="false">
+          <aside class="browser-sidebar" aria-label="Workspace preview controls">
+            <div class="pv-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="pv-brand" aria-hidden="true"><svg width="18" height="18"><use href="#i-mark"/></svg>cove</div>
+            <div class="pv-search" aria-hidden="true"><svg width="13" height="13"><use href="#i-search"/></svg>Search anything<span>⌘K</span></div>
+            <div class="pv-space"><svg class="space-icon" width="15" height="15" aria-hidden="true"><use href="#i-sun"/></svg><span id="preview-space-name">Personal</span></div>
+            <div class="pv-tabs">
+              <div class="pv-tab is-active"><svg width="14" height="14" aria-hidden="true"><use href="#i-mark"/></svg><span id="preview-tab-name">A little space for you</span></div>
+              <div class="pv-tab"><span class="pv-dot" aria-hidden="true">F</span>Field notes</div>
+              <div class="pv-tab"><span class="pv-dot" aria-hidden="true">W</span><span id="preview-third-tab">Weekend somewhere</span></div>
+              <div class="pv-tab pv-new"><svg width="13" height="13" aria-hidden="true"><use href="#i-plus"/></svg>New tab</div>
+            </div>
+            <div class="space-switcher">
+              <button type="button" aria-label="Personal space" aria-pressed="true" data-space-choice="personal"><svg width="15" height="15" aria-hidden="true"><use href="#i-sun"/></svg></button>
+              <button type="button" aria-label="Work space" aria-pressed="false" data-space-choice="work"><svg width="15" height="15" aria-hidden="true"><use href="#i-case"/></svg></button>
+              <button class="split-toggle" type="button" aria-label="Toggle split view" aria-pressed="false"><svg width="15" height="15" aria-hidden="true"><use href="#i-split"/></svg></button>
+            </div>
+          </aside>
+          <div class="browser-content">
+            <div class="browser-toolbar" aria-hidden="true"><span>← → ↻</span><span class="address"><svg width="11" height="11"><use href="#i-lock"/></svg>cove://home</span><svg width="14" height="14"><use href="#i-dots"/></svg></div>
+            <div class="preview-pages">
+              <div class="home-page">
+                <div class="home-copy">
+                  <h3 id="preview-greeting">A little space<br>for you.</h3>
+                  <p id="preview-subtitle">Less noise. More of what brings you here.</p>
+                </div>
+              </div>
+              <article class="split-page" hidden>
+                <p class="pv-from">From your reading list</p>
+                <h3>A slower kind of internet.</h3>
+                <p>Keep the things that matter close. Let the rest breathe.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="preview-controls" role="group" aria-label="Try the illustrated workspace">
+          <button type="button" data-space-choice="personal" aria-label="Show Personal workspace" aria-pressed="true">Personal</button>
+          <button type="button" data-space-choice="work" aria-label="Show Work workspace" aria-pressed="false">Work</button>
+          <button type="button" data-split-toggle aria-label="Preview split view" aria-pressed="false">Split view</button>
+        </div>
+        <p class="caption">Interactive preview: an illustration built in HTML, not a live browser.</p>
+      </div>
+      <div class="stage" data-reveal>
+        <p><strong>Before you rely on it, know what’s missing.</strong> This is early software, not a browser for every day yet. Builds are unsigned and not notarized, there are no automatic updates, and you shouldn’t use it for sensitive browsing. Extensions, a password manager, sync and an ad blocker aren’t here yet.</p>
+        <p class="link-row"><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/SECURITY.md">Security and privacy limits ↗</a><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/FEATURES.md">Roadmap ↗</a><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/README.md">Full setup guide ↗</a></p>
+      </div>
+      <div class="stage" data-reveal>
+        <p><strong>If something feels wrong, say so.</strong> Open an issue on GitHub. Pull requests are welcome, and <a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/CONTRIBUTING.md">the contributing guide</a> explains how to run the tests.</p>
+      </div>
+    </section>
 
-    <section class="alpha-notice wrap" aria-label="Developer alpha limitations"><span class="alpha-tag">A NOTE ON THE ALPHA</span><p>This is early software, not a daily-driver release. Builds are unsigned and not notarized, with no automatic updates. <strong>Do not use it for sensitive browsing.</strong> Extensions, password management, sync, and full Arc parity are not available. <a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/SECURITY.md">Security &amp; privacy boundaries ↗</a></p></section>
-
-    <section class="faq-section wrap" aria-labelledby="faq-title"><h2 id="faq-title">Good questions.</h2><div><details><summary>Is this a fork of Arc?<span aria-hidden="true">＋</span></summary><p>No. Cove is an independent implementation inspired by the way Arc made browsing feel. It does not use Arc’s code or branding, and is not affiliated with The Browser Company.</p></details><details><summary>Can I move my Chrome or Arc profile?<span aria-hidden="true">＋</span></summary><p>Not directly. Cove uses its own Chromium sessions and never reads another installed browser’s profile. Bookmark and workspace import have their own documented limits.</p></details><details><summary>What does private browsing mean here?<span aria-hidden="true">＋</span></summary><p>Private sessions are separate and nonpersistent. That is not anonymity or guaranteed absence of disk traces. Saved downloads remain, and temporary runtime data is not automatically erased.</p></details></div></section>
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="faq-row faq-head"><h2 id="faq-title" data-reveal>Good questions.</h2></div>
+      <div class="faq-row" data-reveal><h3>Is this a fork of Arc?</h3><p>No. Cove is an independent implementation inspired by the way Arc made browsing feel. It doesn’t use Arc’s code or branding, and it isn’t affiliated with The Browser Company.</p></div>
+      <div class="faq-row" data-reveal><h3>Does it cost anything?</h3><p>No. Cove is free and MIT-licensed, so you can read, change and share the code. It’s built with Electron, Chromium and React.</p></div>
+      <div class="faq-row" data-reveal><h3>Which computers can run it?</h3><p>Building from source needs a desktop on macOS, Windows or Linux with Node.js 22.12 or newer. So far, packaged builds have only been checked on Apple Silicon Macs.</p></div>
+      <div class="faq-row" data-reveal><h3>Can I bring my Chrome or Arc profile?</h3><p>Not directly. Cove uses its own Chromium sessions and never reads another browser’s profile. You can import a bookmarks file, up to 500 links at a time.</p></div>
+      <div class="faq-row" data-reveal><h3>Does Cove collect data about me?</h3><p>No. There’s no telemetry and no account. Your workspace, history and notes stay on your computer, and in normal spaces you stay signed in to websites across restarts.</p></div>
+      <div class="faq-row" data-reveal><h3>What does private mean here?</h3><p>Private sessions are separate and aren’t saved. That isn’t anonymity, and it doesn’t guarantee nothing touches the disk: saved downloads remain, and temporary runtime data isn’t automatically erased.</p></div>
+      <div class="faq-row" data-reveal><h3>Does it have extensions?</h3><p>Not yet. The alpha has no extensions, password manager, sync or ad blocker. The roadmap lists what comes before a public release.</p></div>
+    </section>
   </main>
-  <footer class="site-footer wrap"><div><a class="wordmark" href="#top">cove<span class="footer-dot">.</span></a><span>A little space for you.</span></div><nav aria-label="Project resources"><a href="https://github.com/arjunkshah12345-hash/cove-browser">Source ↗</a><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/FEATURES.md">Roadmap ↗</a><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/LICENSE">MIT license ↗</a></nav><p>Independent by design. Scenery via <a href="https://unsplash.com/license">Unsplash</a>.</p></footer>
+
+  <footer class="site-footer">
+    <p class="footer-name" aria-hidden="true">Cove</p>
+    <div class="footer-row">
+      <ul class="footer-places">
+        <li><a href="https://github.com/arjunkshah12345-hash/cove-browser">Source on GitHub</a></li>
+        <li><a href="https://github.com/arjunkshah12345-hash/cove-browser/issues">Report an issue</a></li>
+        <li><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/SECURITY.md">Security policy</a></li>
+      </ul>
+      <div class="footer-links">
+        <ul><li><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/FEATURES.md">Roadmap</a></li><li><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/CHANGELOG.md">Changelog</a></li><li><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/LICENSE">MIT licence</a></li></ul>
+        <ul><li><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/README.md">Setup guide</a></li><li><a href="https://github.com/arjunkshah12345-hash/cove-browser/blob/main/CONTRIBUTING.md">Contributing</a></li></ul>
+        <p class="credits">Pictures: Lulworth Cove <a href="https://commons.wikimedia.org/wiki/File:Lulworth_Cove.jpg">photographed in 2007</a> by Paste at English Wikipedia (public domain) and <a href="https://commons.wikimedia.org/wiki/File:William_Daniell_-_Lulworth_Cove_-_B1975.4.224_-_Yale_Center_for_British_Art.jpg">drawn by William Daniell in 1813</a> (CC0). <a href="https://commons.wikimedia.org/wiki/File:2016-06-03_USA,_CA,_McWay_Cove_DSC_8734_DxO_1.jpg">McWay Cove</a> by Laurens R. Krol, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+      </div>
+    </div>
+    <div class="footer-legal"><span>2026 · Independent, and not affiliated with The Browser Company.</span><a href="#top">Back to top ↑</a></div>
+  </footer>
 </body>
 </html>

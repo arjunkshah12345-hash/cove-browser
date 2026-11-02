@@ -16,6 +16,7 @@ motionPreference.addEventListener("change", () => {
   }
 });
 
+/* Build commands */
 const copyButton = document.getElementById("copy-build");
 const buildCommands = document.getElementById("build-commands");
 const copyStatus = document.getElementById("copy-status");
@@ -29,7 +30,6 @@ if (copyButton && buildCommands && copyStatus && window.isSecureContext && navig
       await navigator.clipboard.writeText(buildCommands.textContent.trim());
       copyStatus.textContent = "Build commands copied.";
       copyButton.dataset.copied = "true";
-      animateElement(copyButton, [{ transform: "scale(.96)" }, { transform: "scale(1)" }], { duration: 240, easing: "cubic-bezier(.2,.8,.2,1)" });
     } catch {
       delete copyButton.dataset.copied;
       copyStatus.textContent = "Could not copy. Select the commands above to copy them manually.";
@@ -39,6 +39,46 @@ if (copyButton && buildCommands && copyStatus && window.isSecureContext && navig
   });
 }
 
+/* Tour: tabs swap the real screenshot on the plate */
+const tourTabs = [...document.querySelectorAll("[data-tour]")];
+const plateShots = document.querySelectorAll(".plate-shot");
+function selectTour(tab, focus) {
+  tourTabs.forEach((other) => {
+    const selected = other === tab;
+    other.setAttribute("aria-selected", String(selected));
+    other.tabIndex = selected ? 0 : -1;
+    document.getElementById(other.getAttribute("aria-controls")).hidden = !selected;
+  });
+  plateShots.forEach((shot) => shot.classList.toggle("is-current", shot.dataset.shot === tab.dataset.tour));
+  if (focus) tab.focus();
+  animateElement(document.getElementById(tab.getAttribute("aria-controls")), [
+    { opacity: 0, transform: "translateY(12px)" },
+    { opacity: 1, transform: "none" }
+  ], { duration: 420, easing: "cubic-bezier(.16,1,.3,1)" });
+}
+tourTabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => selectTour(tab, false));
+  tab.addEventListener("keydown", (event) => {
+    const next = { ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: tourTabs.length - 1 }[event.key];
+    if (next === undefined) return;
+    event.preventDefault();
+    selectTour(tourTabs[(next + tourTabs.length) % tourTabs.length], true);
+  });
+});
+
+/* Index: pointing at a name reads its description in one fixed spot */
+const indexSpot = document.querySelector(".index-spot");
+const indexDefault = indexSpot?.textContent;
+document.querySelectorAll(".index-col li").forEach((item) => {
+  item.addEventListener("pointerenter", () => {
+    if (!indexSpot) return;
+    indexSpot.textContent = item.dataset.desc;
+    animateElement(indexSpot, [{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { duration: 260, easing: "ease-out" });
+  });
+  item.addEventListener("pointerleave", () => { if (indexSpot) indexSpot.textContent = indexDefault; });
+});
+
+/* The workspace preview */
 const preview = document.querySelector(".browser-preview");
 const spaceChoices = document.querySelectorAll("[data-space-choice]");
 const splitButton = document.querySelector(".split-toggle");
@@ -46,9 +86,10 @@ const splitControls = document.querySelectorAll(".split-toggle, [data-split-togg
 const splitPage = document.querySelector(".split-page");
 const homePage = document.querySelector(".home-page");
 const spaceCopy = {
-  personal: { name: "Personal", tab: "A place to begin", third: "Weekend somewhere", greeting: "Make room<br>for a little wonder.", subtitle: "A new tab. A new possibility." },
+  personal: { name: "Personal", tab: "A little space for you", third: "Weekend somewhere", greeting: "A little space<br>for you.", subtitle: "Less noise. More of what brings you here." },
   work: { name: "Work", tab: "Room for good ideas", third: "The next big thing", greeting: "Good ideas<br>start with space.", subtitle: "A clear head. A fresh perspective." }
 };
+const spaceIcons = { personal: "#i-sun", work: "#i-case" };
 
 spaceChoices.forEach((button) => {
   button.addEventListener("click", () => {
@@ -62,6 +103,7 @@ spaceChoices.forEach((button) => {
     document.getElementById("preview-third-tab").textContent = copy.third;
     document.getElementById("preview-greeting").innerHTML = copy.greeting;
     document.getElementById("preview-subtitle").textContent = copy.subtitle;
+    document.querySelector(".space-icon use")?.setAttribute("href", spaceIcons[space]);
     animateElement(document.querySelector(".home-copy"), [
       { clipPath: "inset(0 0 100% 0)", opacity: .3 },
       { clipPath: "inset(0 0 0% 0)", opacity: 1 }
@@ -83,9 +125,9 @@ if (splitButton && splitPage && preview && homePage) {
     preview.dataset.split = String(enabled);
     splitPage.hidden = !enabled;
     const nextWidth = homePage.getBoundingClientRect().width;
-    animateElement(homePage, [
-      { transform: `scaleX(${previousWidth / nextWidth})` },
-      { transform: "scaleX(1)" }
+    if (previousWidth > 0 && nextWidth > 0) animateElement(homePage, [
+      { transform: `scaleX(${previousWidth / nextWidth})`, transformOrigin: "left" },
+      { transform: "scaleX(1)", transformOrigin: "left" }
     ], { duration: 460, easing: "cubic-bezier(.22,1,.36,1)" });
     if (enabled) animateElement(splitPage, [
       { clipPath: "inset(0 0 0 100%)", opacity: .4 },
@@ -94,26 +136,42 @@ if (splitButton && splitPage && preview && homePage) {
   }));
 }
 
+/* Entrances: the parts of each section arrive in turn */
 if ("IntersectionObserver" in window) {
-  const revealTargets = document.querySelectorAll(".browser-preview, .section-intro, .feature-list article, .source-art, .keyboard-section, .terminal, .build-intro");
-  const observer = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add("motion-entered");
-      observer.unobserve(entry.target);
+      entry.target.classList.add("is-in");
+      revealObserver.unobserve(entry.target);
     });
-  }, { threshold: .12 });
-  revealTargets.forEach((element) => {
-    element.classList.add("motion-ready");
-    observer.observe(element);
+  }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+  document.querySelectorAll("section").forEach((section) => {
+    section.querySelectorAll("[data-reveal]").forEach((element, index) => {
+      element.style.setProperty("--reveal-delay", `${Math.min(index, 6) * 80}ms`);
+      revealObserver.observe(element);
+    });
   });
+} else {
+  document.querySelectorAll("[data-reveal]").forEach((element) => element.classList.add("is-in"));
 }
 
-document.querySelectorAll(".faq-section details").forEach((details) => {
-  details.addEventListener("toggle", () => {
-    if (details.open) animateElement(details.querySelector("p"), [
-      { opacity: 0, transform: "translateY(-6px)" },
-      { opacity: 1, transform: "translateY(0)" }
-    ], { duration: 220, easing: "ease-out" });
+/* The signature move: three coves crossfade behind the name */
+const heroImages = document.querySelectorAll(".hero-media img");
+if (heroImages.length > 1) {
+  let current = 0;
+  let visible = true;
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => { visible = entries.some((entry) => entry.isIntersecting); }).observe(heroImages[0].parentElement);
+  }
+  window.setInterval(() => {
+    if (motionPreference.matches || document.hidden || !visible) return;
+    heroImages[current].classList.remove("is-current");
+    current = (current + 1) % heroImages.length;
+    heroImages[current].classList.add("is-current");
+  }, 6000);
+  motionPreference.addEventListener("change", () => {
+    if (!motionPreference.matches) return;
+    heroImages.forEach((image, index) => image.classList.toggle("is-current", index === 0));
+    current = 0;
   });
-});
+}
