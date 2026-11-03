@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b100d">
-  <meta name="description" content="Cove is a free, open-source browser with spaces, split view and Peek, for people who miss how Arc felt. An early developer alpha you build from source.">
-  <title>Cove — a free, open-source browser for people who miss Arc</title>
+  <meta name="description" content="Arc shuts down on December 22, 2026. Cove is a free, open-source browser with Spaces, split view and Peek, for people who want to keep browsing the Arc way. An early developer alpha you build from source.">
+  <title>Cove — a free, open-source alternative to Arc</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/chivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./styles.css">
@@ -27,7 +27,7 @@
 
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Cove home"><svg width="24" height="24" aria-hidden="true"><use href="#i-mark"/></svg>cove</a>
-    <nav aria-label="Main navigation"><a href="#features">Features</a><a href="#keys">Shortcuts</a><a href="#build">Build</a><a href="https://github.com/arjunkshah12345-hash/cove-browser">GitHub <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main navigation"><a href="#from-arc">From Arc</a><a href="#features">Features</a><a href="#keys">Shortcuts</a><a href="#build">Build</a><a href="https://github.com/arjunkshah12345-hash/cove-browser">GitHub <span aria-hidden="true">↗</span></a></nav>
   </header>
 
   <main id="main">
@@ -38,7 +38,7 @@
         <img src="./assets/hero-1813.jpg" width="1920" height="1318" alt="" loading="lazy">
       </div>
       <div class="hero-band">
-        <p class="hero-line" data-reveal>A free, open-source browser for people who miss Arc. Spaces, split view and Peek, in developer alpha 0.6.</p>
+        <p class="hero-line" data-reveal>Arc shuts down on December&nbsp;22. Cove is a free, open-source browser that keeps the Spaces, split view and Peek. Developer alpha 0.6.</p>
         <a class="button" href="#build" data-reveal>Build the alpha</a>
         <h1 id="hero-title" data-reveal>Cove</h1>
       </div>
@@ -66,6 +66,29 @@
           <div class="tour-panel" role="tabpanel" id="panel-evening" aria-labelledby="tab-evening" hidden><p class="tour-title">Light by day, dark by evening</p><p>Choose sage, sand or lavender. Cove can follow your computer’s light and dark setting as it changes, or you can turn evening mode on yourself.</p></div>
         </div>
         <div class="cells"><a class="cell cell-ink" href="#build">Build the alpha</a><a class="cell" href="https://github.com/arjunkshah12345-hash/cove-browser">Read the source <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="arc split" id="from-arc" aria-labelledby="arc-title">
+      <h2 id="arc-title" data-reveal>Arc ends December 22. Cove doesn’t.</h2>
+      <div class="split-body">
+        <p class="arc-lede" data-reveal>The Browser Company is shutting Arc down and pointing people to Dia. If what you loved was the sidebar, the Spaces and Peek, Cove keeps them. It’s open source, with no account and no server behind it to switch off.</p>
+        <table class="map-table" data-reveal>
+          <caption class="visually-hidden">Arc features and their Cove equivalents</caption>
+          <thead><tr><th scope="col">In Arc</th><th scope="col">In Cove</th></tr></thead>
+          <tbody>
+            <tr><td>Spaces</td><td>Spaces, each signed in to its own sites</td></tr>
+            <tr><td>Sidebar tabs</td><td>Vertical tabs, and <kbd>⌘ ⇧ S</kbd> hides the sidebar</td></tr>
+            <tr><td>Pinned Tabs and Folders</td><td>Pinned tabs and folders; a pin resets to its home page</td></tr>
+            <tr><td>Favorites</td><td>Favourites, up to 12 across every space</td></tr>
+            <tr><td>Peek</td><td>Peek: Shift-click any link</td></tr>
+            <tr><td>Split View</td><td>Split view, two panes, saved per space</td></tr>
+            <tr><td>Command Bar</td><td><kbd>⌘ K</kbd> across tabs, history and commands</td></tr>
+            <tr><td>Archive</td><td>Closed tabs archive, with optional auto-archive after 1, 7 or 30 days</td></tr>
+          </tbody>
+        </table>
+        <p class="arc-missing" data-reveal>Not in Cove yet: extensions, a password manager, sync, Boosts, Easels, Little Arc and mobile.</p>
+        <p class="arc-move" data-reveal><strong>Bringing your tabs.</strong> Before December 22, use Export Data in Arc’s Advanced settings to save a copy of your tabs. Cove can’t read that file directly yet; Arc import is on the roadmap. Bookmarks files from other browsers import today, up to 500 links at a time.</p>
       </div>
     </section>
 
